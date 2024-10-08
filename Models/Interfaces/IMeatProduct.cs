@@ -1,4 +1,6 @@
-﻿namespace AldyarOnlineShoppig.Models.Interfaces
+﻿using AldyarOnlineShoppig.Models.Enums;
+
+namespace AldyarOnlineShoppig.Models.Interfaces
 {
  
 
