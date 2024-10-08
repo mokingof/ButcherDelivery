@@ -5,6 +5,18 @@
       "PackagePath": "staticwebassets\\AldyarOnlineShoppig.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\abdill\\source\\repos\\AldyarOnlineShoppig\\AldyarOnlineShoppig\\wwwroot\\Images\\ChickenBreast.jpg",
+      "PackagePath": "staticwebassets\\Images\\ChickenBreast.jpg"
+    },
+    {
+      "Id": "C:\\Users\\abdill\\source\\repos\\AldyarOnlineShoppig\\AldyarOnlineShoppig\\wwwroot\\Images\\LambChops.jpg",
+      "PackagePath": "staticwebassets\\Images\\LambChops.jpg"
+    },
+    {
+      "Id": "C:\\Users\\abdill\\source\\repos\\AldyarOnlineShoppig\\AldyarOnlineShoppig\\wwwroot\\Images\\Shop.jpg",
+      "PackagePath": "staticwebassets\\Images\\Shop.jpg"
+    },
+    {
       "Id": "C:\\Users\\abdill\\source\\repos\\AldyarOnlineShoppig\\AldyarOnlineShoppig\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
