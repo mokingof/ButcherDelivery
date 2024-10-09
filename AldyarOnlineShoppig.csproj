@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="Models\MeatProducts\Concrete\Chicken\" />
     <Folder Include="Services\" />
   </ItemGroup>
 

@@ -1,7 +1,9 @@
 ﻿using AldyarOnlineShoppig.Models.Enums;
+using AldyarOnlineShoppig.Models.ExceptionHandling;
 using AldyarOnlineShoppig.Models.Factories.Abstract;
 using AldyarOnlineShoppig.Models.Interfaces;
 using AldyarOnlineShoppig.Models.MeatProducts.Concrete;
+
 
 namespace AldyarOnlineShoppig.Models.Factories.Concrete
 {
@@ -13,6 +15,10 @@ namespace AldyarOnlineShoppig.Models.Factories.Concrete
          */
         public override IMeatProduct CreateMeatProduct(Enum cut, double weight)
         {
+            if (!Enum.IsDefined(typeof(BeefCut), cut))
+            {
+                throw new InvalidMeatCutException($"Invalid beef cut: {cut}");
+            }
             switch ((BeefCut)cut)
             {
                 case BeefCut.Sirloin:
@@ -31,7 +37,7 @@ namespace AldyarOnlineShoppig.Models.Factories.Concrete
                     return new TopSide(weight);
                 // ... other cases
                 default:
-                    throw new ArgumentException("Invalid beef cut", nameof(cut));
+                    throw new ArgumentException($"Unsupported beef cut: {cut}");
             }
         }
     }

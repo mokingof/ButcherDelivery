@@ -1,4 +1,5 @@
 ﻿using AldyarOnlineShoppig.Models.Enums;
+using AldyarOnlineShoppig.Models.ExceptionHandling;
 using AldyarOnlineShoppig.Models.Factories.Abstract;
 using AldyarOnlineShoppig.Models.Interfaces;
 
@@ -12,11 +13,23 @@ namespace AldyarOnlineShoppig.Models.Factories.Concrete
         */
         public IMeatProduct CreateMeatProduct(MeatType type, Enum cut, double weight)
         {
-            MeatFactory factory = GetFactory(type);
-            return factory.CreateMeatProduct(cut, weight);
+            try
+            {
+                MeatFactory factory = GetFactory(type);
+                return factory.CreateMeatProduct(cut, weight);
+            }
+           catch (InvalidMeatCutException ex)
+            {
+                Console.WriteLine($"Error creating meat product: {ex.Message}");
+                throw;
+            }
         }
         private MeatFactory GetFactory(MeatType type)
         {
+            if (!Enum.IsDefined(typeof(MeatType), type))
+            {
+                throw new InvalidMeatCutException($"Invalid meat type: {type}");
+            }
             switch (type)
             {
                 case MeatType.Beef:
@@ -25,7 +38,7 @@ namespace AldyarOnlineShoppig.Models.Factories.Concrete
                     return new ChickenFactory();
                 // Add other meat type factories here
                 default:
-                    throw new ArgumentException("Invalid meat type", nameof(type));
+                    throw new InvalidMeatCutException($"Unsupported meat type: {type}");
             }
         }
     }

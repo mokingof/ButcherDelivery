@@ -2,9 +2,9 @@
 {
     public enum ChickenCut
     {
-        ChickenLegs,
-        ChickenBreast,
-        ChickenWings,
-        ChickenThighs
+        Legs,
+        Breast,
+        Wings,
+        Thighs
     }
 }
