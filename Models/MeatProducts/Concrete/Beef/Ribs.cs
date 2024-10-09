@@ -3,13 +3,14 @@ using AldyarOnlineShoppig.Models.MeatProducts.Abstract;
 
 namespace AldyarOnlineShoppig.Models.MeatProducts.Concrete
 {
-    public class Mince : Beef
+    public class Ribs : Beef
     {
-        public override BeefCut Cut => throw new NotImplementedException();
+        public override BeefCut Cut => BeefCut.Ribs;
 
-        public Mince(double weigt)
+        public Ribs(double wight)
         {
-            Weight = weigt;
+            Weight = wight;
+            PricePerKg = 10.99m;
         }
     }
 }

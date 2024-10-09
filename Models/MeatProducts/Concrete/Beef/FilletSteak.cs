@@ -3,16 +3,14 @@ using AldyarOnlineShoppig.Models.MeatProducts.Abstract;
 
 namespace AldyarOnlineShoppig.Models.MeatProducts.Concrete
 {
-    public class Sirloin : Beef
+    public class FilletSteak : Beef
     {
-        
-        public override BeefCut Cut => BeefCut.Sirloin;
+        public override BeefCut Cut => BeefCut.FilletSteak;
 
-        public Sirloin(double weight)
+        public FilletSteak(double weight)
         {
             Weight = weight;
-            PricePerKg = 15.99m;
+            PricePerKg = 12.99m;
         }
-
     }
 }

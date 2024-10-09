@@ -22,7 +22,7 @@ namespace AldyarOnlineShoppig.Models.Factories.Concrete
                 case MeatType.Beef:
                     return new BeefFactory();
                 case MeatType.Chicken:
-                    return new BeefFactory();
+                    return new ChickenFactory();
                 // Add other meat type factories here
                 default:
                     throw new ArgumentException("Invalid meat type", nameof(type));
