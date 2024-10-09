@@ -19,6 +19,16 @@ namespace AldyarOnlineShoppig.Models.Factories.Concrete
                     return new Sirloin(weight);
                 case BeefCut.Mince:
                     return new Mince(weight);
+                case BeefCut.FilletSteak:
+                    return new FilletSteak(weight);
+                case BeefCut.FilletWhole:
+                    return new FilletWhole(weight);
+                case BeefCut.Ribs:
+                    return new Ribs(weight);
+                case BeefCut.TBone:
+                    return new TBone(weight);
+                case BeefCut.TopSide:
+                    return new TopSide(weight);
                 // ... other cases
                 default:
                     throw new ArgumentException("Invalid beef cut", nameof(cut));
