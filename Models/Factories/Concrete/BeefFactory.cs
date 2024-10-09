@@ -35,7 +35,6 @@ namespace AldyarOnlineShoppig.Models.Factories.Concrete
                     return new TBone(weight);
                 case BeefCut.TopSide:
                     return new TopSide(weight);
-                // ... other cases
                 default:
                     throw new ArgumentException($"Unsupported beef cut: {cut}");
             }

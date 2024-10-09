@@ -36,7 +36,6 @@ namespace AldyarOnlineShoppig.Models.Factories.Concrete
                     return new BeefFactory();
                 case MeatType.Chicken:
                     return new ChickenFactory();
-                // Add other meat type factories here
                 default:
                     throw new InvalidMeatCutException($"Unsupported meat type: {type}");
             }
