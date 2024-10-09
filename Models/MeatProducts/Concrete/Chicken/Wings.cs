@@ -10,7 +10,7 @@ namespace AldyarOnlineShoppig.Models.MeatProducts
         public Wings(double weight)
         {
             Weight = weight;
-            PricePerKg = 5.99m;
+            PricePerKg = 5.99;
         }
     }
 }

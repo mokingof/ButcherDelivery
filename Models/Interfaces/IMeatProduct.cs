@@ -8,7 +8,7 @@ namespace AldyarOnlineShoppig.Models.Interfaces
     {
         MeatType Type { get; }
         double Weight { get; set; }
-        decimal PricePerKg { get; set; }
-        decimal CalculatePrice();
+        double PricePerKg { get; set; }
+        double CalculatePrice();
     }
 }

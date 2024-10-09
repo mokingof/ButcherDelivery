@@ -7,12 +7,12 @@ namespace AldyarOnlineShoppig.Models.MeatProducts.Abstract
     {
         public MeatType Type => MeatType.Beef;
         public double Weight { get; set; }
-        public decimal PricePerKg { get; set; }
+        public double PricePerKg { get; set; }
         public abstract BeefCut Cut { get; }
         
-        public decimal CalculatePrice()
+        public double CalculatePrice()
         {
-            return (decimal)Weight * PricePerKg;
+            return Weight * PricePerKg;
         }
 
 

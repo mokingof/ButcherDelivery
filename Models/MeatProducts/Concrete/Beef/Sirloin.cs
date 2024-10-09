@@ -11,7 +11,7 @@ namespace AldyarOnlineShoppig.Models.MeatProducts.Concrete
         public Sirloin(double weight)
         {
             Weight = weight;
-            PricePerKg = 15.99m;
+            PricePerKg = 15.99;
         }
 
     }
