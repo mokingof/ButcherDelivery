@@ -10,7 +10,7 @@ namespace AldyarOnlineShoppig.Models.MeatProducts.Concrete
         public Ribs(double wight)
         {
             Weight = wight;
-            PricePerKg = 10.99;
+            PricePerKg = 10.99m;
         }
     }
 }

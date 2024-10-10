@@ -10,7 +10,7 @@ namespace AldyarOnlineShoppig.Models.MeatProducts.Concrete
         public Mince(double weigt)
         {
             Weight = weigt;
-            PricePerKg = 5.99;
+            PricePerKg = 5.99m;
         }
     }
 }

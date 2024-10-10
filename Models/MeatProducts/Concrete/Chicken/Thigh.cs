@@ -9,7 +9,7 @@ namespace AldyarOnlineShoppig.Models.MeatProducts.Abstract
         public Thigh(double weight)
         {
             Weight = weight;
-            PricePerKg = 4.99;
+            PricePerKg = 4.99m;
         }
     }
 }

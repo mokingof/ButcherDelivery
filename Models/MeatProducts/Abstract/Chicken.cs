@@ -7,12 +7,12 @@ namespace AldyarOnlineShoppig.Models.MeatProducts.Abstract
     {
         public MeatType Type => MeatType.Chicken;
         public double Weight { get; set; }
-        public double PricePerKg { get; set; }
+        public decimal PricePerKg { get; set; }
         public abstract ChickenCut Cut { get; }
 
-        public double CalculatePrice()
+        public decimal CalculatePrice()
         {
-            return Weight * PricePerKg;
+            return (decimal)Weight * PricePerKg;
         }
 
     }
