@@ -11,12 +11,12 @@ namespace AldyarOnlineShoppig.Models.Factories.Concrete
            and coordinates the creation of different types of meat products across various meat categories 
            regardless of the specific meat type .
         */
-        public IMeatProduct CreateMeatProduct(MeatType type, Enum cut, double weight)
+        public IMeatProduct CreateMeatProduct(MeatType meatType, Enum meatCut, double meatWeight)
         {
             try
             {
-                MeatFactory factory = GetFactory(type);
-                return factory.CreateMeatProduct(cut, weight);
+                MeatFactory factory = GetFactory(meatType);
+                return factory.CreateMeatProduct(meatCut, meatWeight);
             }
            catch (InvalidMeatCutException ex)
             {

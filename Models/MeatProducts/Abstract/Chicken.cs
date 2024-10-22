@@ -14,6 +14,12 @@ namespace AldyarOnlineShoppig.Models.MeatProducts.Abstract
         {
             return (decimal)Weight * PricePerKg;
         }
-
+        override public string ToString()
+        {
+            return $"Meat Type: {Type}\n" +
+                $"Meat Cut: {Cut}\n" +
+                $"Weight: {Weight}\n" +
+                $"Cost Per Kilo: £{PricePerKg}";
+        }
     }
 }

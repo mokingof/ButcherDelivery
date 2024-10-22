@@ -1,3 +1,8 @@
+using AldyarOnlineShoppig.Models.Factories.Concrete;
+using AldyarOnlineShoppig.Models.Interfaces;
+using AldyarOnlineShoppig.Models.MeatProducts.Abstract;
+using AldyarOnlineShoppig.Models.MeatProducts.Concrete;
+
 namespace AldyarOnlineShoppig
 {
     public class Program
@@ -29,6 +34,9 @@ namespace AldyarOnlineShoppig
             app.MapRazorPages();
 
             app.Run();
+
+
+
         }
     }
 }
