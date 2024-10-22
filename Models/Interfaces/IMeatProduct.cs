@@ -2,13 +2,13 @@
 
 namespace AldyarOnlineShoppig.Models.Interfaces
 {
- 
+
 
     public interface IMeatProduct
     {
         MeatType Type { get; }
-        double Weight { get; set; }
-        decimal PricePerKg { get; set; }
+        double Weight { get; }
+        decimal PricePerKg { get; }
         decimal CalculatePrice();
     }
 }

@@ -9,8 +9,8 @@ namespace AldyarOnlineShoppig.Models.MeatProducts.Concrete
 
         public FilletWhole(double weight)
         {
-            Weight = weight;
-            PricePerKg = 30.00m;
+                SetWeight(weight);
+            SetPricePerKg(30.99m);
         }
     }
 }

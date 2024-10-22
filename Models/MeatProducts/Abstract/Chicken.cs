@@ -5,14 +5,33 @@ namespace AldyarOnlineShoppig.Models.MeatProducts.Abstract
 {
     public abstract class Chicken : IMeatProduct
     {
+        private double _weight;
+        private decimal _pricePerKg;
         public MeatType Type => MeatType.Chicken;
-        public double Weight { get; set; }
-        public decimal PricePerKg { get; set; }
-        public abstract ChickenCut Cut { get; }
+        public double Weight => _weight;
+        public decimal PricePerKg => _pricePerKg;
+        public abstract ChickenCut Cut { get;}
 
         public decimal CalculatePrice()
         {
             return (decimal)Weight * PricePerKg;
+        }
+        protected void SetWeight(double value)
+        {
+            if (Weight < 0)
+            {
+                throw new ArgumentException("Weight must be positive");
+            }
+            _weight = value;
+        }
+
+        protected void SetPricePerKg(decimal value)
+        {
+            if (value < 0)
+            {
+                throw new ArgumentException("Weight must be positive");
+            }
+            _pricePerKg = value;
         }
         override public string ToString()
         {

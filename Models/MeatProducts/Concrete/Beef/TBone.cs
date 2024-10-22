@@ -9,8 +9,8 @@ namespace AldyarOnlineShoppig.Models.MeatProducts.Concrete
 
         public TBone(double weight)
         {
-            Weight = weight;
-            PricePerKg = 20.99m;
+            SetWeight(weight);
+            SetPricePerKg(20.99m);
         }
     }
 }

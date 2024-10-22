@@ -15,10 +15,12 @@ namespace AldyarOnlineShoppig.Models.Factories.Concrete
          */
         public override IMeatProduct CreateMeatProduct(Enum cut, double weight)
         {
+            // Validates the cut type
             if (!Enum.IsDefined(typeof(BeefCut), cut))
             {
                 throw new InvalidMeatCutException($"Invalid beef cut: {cut}");
             }
+            // Creates specific beef product
             switch ((BeefCut)cut)
             {
                 case BeefCut.Sirloin:

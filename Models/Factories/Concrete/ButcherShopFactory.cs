@@ -15,7 +15,9 @@ namespace AldyarOnlineShoppig.Models.Factories.Concrete
         {
             try
             {
+                // Determines which factory to use based on meat type
                 MeatFactory factory = GetFactory(meatType);
+                // Delegates creation to specific factory
                 return factory.CreateMeatProduct(meatCut, meatWeight);
             }
            catch (InvalidMeatCutException ex)

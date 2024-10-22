@@ -7,10 +7,10 @@ namespace AldyarOnlineShoppig.Models.MeatProducts.Concrete
     {
         public override BeefCut Cut => BeefCut.Ribs;
 
-        public Ribs(double wight)
+        public Ribs(double weight)
         {
-            Weight = wight;
-            PricePerKg = 10.99m;
+              SetWeight(weight);
+            SetPricePerKg(10.99m);
         }
     }
 }

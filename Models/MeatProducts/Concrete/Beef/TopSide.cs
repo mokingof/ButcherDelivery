@@ -9,8 +9,9 @@ namespace AldyarOnlineShoppig.Models.MeatProducts.Concrete
 
         public TopSide(double weight)
         {
-            Weight = weight;
-            PricePerKg = 59.00m;
+            SetWeight(weight);
+            SetPricePerKg(59.00m);
+            
         }
     }
 }

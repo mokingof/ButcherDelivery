@@ -8,8 +8,8 @@ namespace AldyarOnlineShoppig.Models.MeatProducts.Abstract
 
         public Breast(double weight)
         {
-            Weight = weight;
-            PricePerKg = 6.99m;
+            SetWeight(weight);
+            SetPricePerKg(7.99m);
         }
     }
 }

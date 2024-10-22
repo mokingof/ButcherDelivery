@@ -7,10 +7,10 @@ namespace AldyarOnlineShoppig.Models.MeatProducts.Concrete
     {
         public override BeefCut Cut => BeefCut.Mince;
 
-        public Mince(double weigt)
+        public Mince(double weight)
         {
-            Weight = weigt;
-            PricePerKg = 5.99m;
+            SetWeight(weight);
+            SetPricePerKg(5.99m);
         }
     }
 }
