@@ -10,5 +10,6 @@ namespace AldyarOnlineShoppig.Models.Interfaces
         double Weight { get; }
         decimal PricePerKg { get; }
         decimal CalculatePrice();
+       
     }
 }
