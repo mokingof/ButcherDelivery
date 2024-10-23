@@ -6,8 +6,8 @@
         IMeatProduct Product { get; }
         int Quantity { get; }
         decimal Subtotal { get; }
-        double TotalWeight { get; }
-        decimal PricePerUnit { get; }
+        double Weight { get; }
+        decimal PricePerKg{ get; }
 
     }
 }
