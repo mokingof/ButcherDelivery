@@ -6,11 +6,7 @@ namespace AldyarOnlineShoppig.Models
     public class ShoppingCart : IShoppingCart
     {
         private Dictionary<IMeatProduct, IShoppingCartItem> _items = new();
-
-        public int ItemCount { get; }
-        public bool IsEmpty { get; }
         public IReadOnlyCollection<IShoppingCartItem> Items { get; }
-
 
         public void AddItem(IMeatProduct product)
         {
@@ -53,24 +49,38 @@ namespace AldyarOnlineShoppig.Models
             int newQuantity = operation.Equals(QuantityOperation.Increment) ? quantity + 1 : quantity - 1;
 
             _items[product] = new ShoppingCartItem(product, newQuantity);
-
-
         }
         public IShoppingCartItem GetItem(IMeatProduct product)
         {
-            throw new NotImplementedException();
+            if (product == null)
+            {
+                throw new ArgumentNullException(nameof(product));
+            }    
+
+            if (_items.ContainsKey(product))
+            {
+                return _items[product];
+            }
+             
+            return null;
         }
         public decimal GetTotalPrice()
         {
-            throw new NotImplementedException();
+            return _items.Values.Sum(item => item.Subtotal);
         }
         public void Clear()
         {
-            throw new NotImplementedException();
+            _items.Clear();
         }
 
+        public int GetItemCount()
+        {
+            return _items.Values.Sum(item => item.Quantity);
+        }
 
-
-
+        public IReadOnlyCollection<IShoppingCartItem> GetAllItems()
+        {
+            return _items.Values.ToList();  
+        }
     }
 }
