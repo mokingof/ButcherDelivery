@@ -1,6 +1,7 @@
 ﻿using AldyarOnlineShoppig.Models.Enums;
+using AldyarOnlineShoppig.Models.Interfaces.MeatProducts.Abstract;
 
-namespace AldyarOnlineShoppig.Models.MeatProducts.Abstract
+namespace AldyarOnlineShoppig.Models.MeatProducts.Concrete.Chicken
 {
     public class Thigh : Chicken
     {

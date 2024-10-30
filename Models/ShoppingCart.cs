@@ -6,7 +6,6 @@ namespace AldyarOnlineShoppig.Models
     public class ShoppingCart : IShoppingCart
     {
         private Dictionary<IMeatProduct, IShoppingCartItem> _items = new();
-        public IReadOnlyCollection<IShoppingCartItem> Items { get; }
 
         public void AddItem(IMeatProduct product)
         {
@@ -45,10 +44,32 @@ namespace AldyarOnlineShoppig.Models
 
         public void UpdateQuantity(IMeatProduct product, QuantityOperation operation)
         {
-            int quantity = _items[product].Quantity;
-            int newQuantity = operation.Equals(QuantityOperation.Increment) ? quantity + 1 : quantity - 1;
+            // Validate inputs
+            if (!_items.ContainsKey(product))
+            {
+                throw new ArgumentException("Product not found in cart", nameof(product));
+            }
 
-            _items[product] = new ShoppingCartItem(product, newQuantity);
+            // Get current state
+            int currentQuantity = _items[product].Quantity;
+
+            // Handle decrement operation
+            if (operation == QuantityOperation.Decrement)
+            {
+                // Check if we need to remove item
+                if (currentQuantity == 1)
+                {
+                    _items.Remove(product);
+                    return;
+                }
+                // Decrease quantity if more than 1
+                _items[product] = new ShoppingCartItem(product, currentQuantity - 1);
+            }
+            else
+            {
+                // Increase quantity
+                _items[product] = new ShoppingCartItem(product, currentQuantity + 1);
+            }
         }
         public IShoppingCartItem GetItem(IMeatProduct product)
         {
@@ -73,7 +94,7 @@ namespace AldyarOnlineShoppig.Models
             _items.Clear();
         }
 
-        public int GetItemCount()
+        public int GetTotalItemQuantity()
         {
             return _items.Values.Sum(item => item.Quantity);
         }

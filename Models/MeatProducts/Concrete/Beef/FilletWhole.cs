@@ -1,7 +1,7 @@
 ﻿using AldyarOnlineShoppig.Models.Enums;
-using AldyarOnlineShoppig.Models.MeatProducts.Abstract;
+using AldyarOnlineShoppig.Models.Interfaces.MeatProducts.Abstract;
 
-namespace AldyarOnlineShoppig.Models.MeatProducts.Concrete
+namespace AldyarOnlineShoppig.Models.MeatProducts.Concrete.Beef
 {
     public class FilletWhole : Beef
     {
@@ -9,7 +9,7 @@ namespace AldyarOnlineShoppig.Models.MeatProducts.Concrete
 
         public FilletWhole(double weight)
         {
-                SetWeight(weight);
+            SetWeight(weight);
             SetPricePerKg(30.99m);
         }
     }

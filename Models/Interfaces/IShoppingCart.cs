@@ -16,7 +16,7 @@
         decimal GetTotalPrice(); // Calculate total cost of all items
         void Clear(); // Empty the cart completely
 
-        int GetItemCount(); // Total number of items (including quantities)
+        int GetTotalItemQuantity(); // Total number of items (including quantities)
         IShoppingCartItem GetItem(IMeatProduct product); // Find specific item in cart
         IReadOnlyCollection<IShoppingCartItem> GetAllItems(); // Safe way to view cart contents without 
                                                         // allowing direct modification
