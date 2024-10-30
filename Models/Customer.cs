@@ -1,4 +1,4 @@
-﻿using AldyarOnlineShoppig.Models.ExceptionHandling;
+﻿using AldyarOnlineShoppig.Models.ExceptionHandling.CustomerException;
 using AldyarOnlineShoppig.Models.Interfaces;
 using System.Text.RegularExpressions;
 
@@ -8,6 +8,9 @@ namespace AldyarOnlineShoppig.Models
     {
         private const int MinNameLength = 2;
         private const int MaxNameLength = 55;
+        private const int MaxEmailLength = 254;
+        private static readonly string MobilePattern = @"^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$";
+        private static readonly string LandlinePattern = @"^(\+44\s?|0)(?:1|2|3)\d{2,3}\s?\d{3,4}\s?\d{3,4}$";
 
         private string _firstName;
         private string _lastName;
@@ -51,6 +54,11 @@ namespace AldyarOnlineShoppig.Models
             ValidateName(firstName, NameField.FirstName);
             ValidateName(lastName, NameField.LastName);
         }
+        private static bool ValidatePhoneNumberFormat(string number)
+        {
+            return Regex.Match(number, MobilePattern, RegexOptions.IgnoreCase).Success ||
+                   Regex.Match(number, LandlinePattern, RegexOptions.IgnoreCase).Success;
+        }
         private void ValidateName(string name, NameField field)
         {
             if (name == null)
@@ -89,7 +97,43 @@ namespace AldyarOnlineShoppig.Models
 
             return true;
         }
+        private void ValidatePhoneNumber(string number)
+        {
+            if (number == null)
+                throw new PhoneValidationException(PhoneValidationError.Null, number);
 
-        
+            if (string.IsNullOrWhiteSpace(number))
+                throw new PhoneValidationException(PhoneValidationError.Empty, number);
+
+            if (!ValidatePhoneNumberFormat(number))
+                throw new PhoneValidationException(PhoneValidationError.InvalidFormat, number);
+        }
+        private void ValidateEmail(string email)
+        {
+            if (email == null)
+                throw new EmailValidationException(EmailValidationError.Null, email);
+
+            var trimmedEmail = email.Trim();
+
+            if (string.IsNullOrWhiteSpace(trimmedEmail))
+                throw new EmailValidationException(EmailValidationError.Empty, email);
+
+            if (trimmedEmail.Length > MaxEmailLength)
+                throw new EmailValidationException(EmailValidationError.TooLong, email);
+
+            if (trimmedEmail.EndsWith("."))
+                throw new EmailValidationException(EmailValidationError.TrailingDot, email);
+
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(trimmedEmail);
+                if (addr.Address != trimmedEmail)
+                    throw new EmailValidationException(EmailValidationError.InvalidFormat, email);
+            }
+            catch (Exception)
+            {
+                throw new EmailValidationException(EmailValidationError.InvalidFormat, email);
+            }
+        }
     }
 }

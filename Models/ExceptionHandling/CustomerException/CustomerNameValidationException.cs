@@ -1,4 +1,4 @@
-﻿namespace AldyarOnlineShoppig.Models.ExceptionHandling
+﻿namespace AldyarOnlineShoppig.Models.ExceptionHandling.CustomerException
 {
     public enum NameField
     {
