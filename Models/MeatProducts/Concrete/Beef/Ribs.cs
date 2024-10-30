@@ -1,7 +1,5 @@
 ﻿using AldyarOnlineShoppig.Models.Enums;
-using AldyarOnlineShoppig.Models.Interfaces.MeatProducts.Abstract;
-
-namespace AldyarOnlineShoppig.Models.MeatProducts.Concrete.Beef
+namespace AldyarOnlineShoppig.Models.MeatProducts.Abstract
 {
     public class Ribs : Beef
     {
