@@ -6,7 +6,21 @@ namespace AldyarOnlineShoppig.Models.Interfaces
     {
         int OrderId { get; }
         DateTime OrderDate { get; }
-        OrderStatus Status { get; } 
-        IShoppingCart shoppingCart { get; }
+        OrderStatus Status { get; }
+        ICollection<IOrderItem> OrderItems { get; }
+        decimal TotalPrice { get; }
+
+        
+        // Essential customer info
+        string CustomerName { get; }
+        string DeliveryAddress { get; }
+        string PhoneNumber { get; }  // For delivery coordination
+
+        // Basic payment info
+        bool IsPaid { get; }
+
+        void UpdateStatus(OrderStatus newStatus);
+
+
     }
 }
