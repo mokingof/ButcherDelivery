@@ -7,7 +7,7 @@ namespace AldyarOnlineShoppig.Models.Interfaces.Customer
         int CustomerId { get; }
         string FirstName { get; }
         string LastName { get; }
-        string Email { get; }
+        IEmail Email { get; }
 
         string PhoneNumber { get; }
         IAddress Address { get; }

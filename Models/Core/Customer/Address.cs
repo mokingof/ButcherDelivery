@@ -22,7 +22,6 @@ namespace AldyarOnlineShoppig.Models.Core.Customer
         public string City => _city;
         public Postcode Postcode => _postcode;
 
-
         public Address(string street, string city, string postcodeString)
         {
             ValidateStreet(street);
