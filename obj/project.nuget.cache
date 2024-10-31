@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "rGTa3DFE3Ng=",
+  "dgSpecHash": "zXG0gg5EqOk=",
   "success": true,
   "projectFilePath": "C:\\Users\\abdill\\source\\repos\\AldyarOnlineShoppig\\AldyarOnlineShoppig\\AldyarOnlineShoppig.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\abdill\\.nuget\\packages\\rbec.postcodes\\1.0.0\\rbec.postcodes.1.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

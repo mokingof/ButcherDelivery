@@ -29,3 +29,6 @@ C:\Users\abdill\source\repos\AldyarOnlineShoppig\AldyarOnlineShoppig\obj\Debug\n
 C:\Users\abdill\source\repos\AldyarOnlineShoppig\AldyarOnlineShoppig\obj\Debug\net8.0\AldyarOnlineShoppig.pdb
 C:\Users\abdill\source\repos\AldyarOnlineShoppig\AldyarOnlineShoppig\obj\Debug\net8.0\AldyarOnlineShoppig.genruntimeconfig.cache
 C:\Users\abdill\source\repos\AldyarOnlineShoppig\AldyarOnlineShoppig\obj\Debug\net8.0\ref\AldyarOnlineShoppig.dll
+C:\Users\abdill\source\repos\AldyarOnlineShoppig\AldyarOnlineShoppig\obj\Debug\net8.0\AldyarOnlineShoppig.csproj.AssemblyReference.cache
+C:\Users\abdill\source\repos\AldyarOnlineShoppig\AldyarOnlineShoppig\bin\Debug\net8.0\Rbec.Postcodes.dll
+C:\Users\abdill\source\repos\AldyarOnlineShoppig\AldyarOnlineShoppig\obj\Debug\net8.0\AldyarOn.32FDE94C.Up2Date

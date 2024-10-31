@@ -2,9 +2,8 @@
 using AldyarOnlineShoppig.Models.ExceptionHandling;
 using AldyarOnlineShoppig.Models.Factories.Abstract;
 using AldyarOnlineShoppig.Models.Interfaces;
-using AldyarOnlineShoppig.Models.MeatProducts;
 using AldyarOnlineShoppig.Models.MeatProducts.Abstract;
-using AldyarOnlineShoppig.Models.MeatProducts.Concrete;
+
 
 namespace AldyarOnlineShoppig.Models.Factories.Concrete
 {

@@ -1,6 +1,7 @@
 ﻿using AldyarOnlineShoppig.Models.ExceptionHandling.CustomerException;
 using AldyarOnlineShoppig.Models.Interfaces;
 using System.Text.RegularExpressions;
+using Rbec.Postcodes;
 
 namespace AldyarOnlineShoppig.Models
 {
@@ -16,8 +17,7 @@ namespace AldyarOnlineShoppig.Models
         private string _lastName;
         private string _email;
         private string _phoneNumber;
-        private string _postcode;
-        private string _address;
+        private IAddress _address;
         private readonly DateTime _registeredDate;
 
         // Required properties from interface
@@ -26,27 +26,25 @@ namespace AldyarOnlineShoppig.Models
         public string LastName => _lastName;
         public string Email => _email;
         public string PhoneNumber => _phoneNumber;
-        public string Address => _address;
-        public string Postcode => _postcode;
+
 
         // Additional useful properties
         public string FullName => $"{FirstName} {LastName}";
         public DateTime RegisteredDate => _registeredDate;
         public ICollection<IOrder> OrderHistory => throw new NotImplementedException();
 
-
+        public IAddress Address => _address;
 
         public Customer(int customerId, string firstName, string lastName, string email,
-                       string phoneNumber, string address, string postcode)
+                       string phoneNumber, string street, string city, string postcode)
         {
             // What validation should we add here?
             CustomerId = customerId;
             _firstName = firstName;
             _lastName = lastName;
             _email = email;
+            _address = new Address(street,city, postcode);
             _phoneNumber = phoneNumber;
-            _address = address;
-            _postcode = postcode;
             _registeredDate = DateTime.Now;
         }
         private void ValidateCustomerName(string firstName, string lastName)

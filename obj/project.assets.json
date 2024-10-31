@@ -1,11 +1,36 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "Rbec.Postcodes/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Rbec.Postcodes.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Rbec.Postcodes.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Rbec.Postcodes/1.0.0": {
+      "sha512": "ikrOM049s6PQImVZeNQQ9Jv3CkTSXOg9KrETVDYAdpmjWndfeLmPctJA4/fG6uRqGFPN075ZU4U4RxDxJBhWfg==",
+      "type": "package",
+      "path": "rbec.postcodes/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Rbec.Postcodes.dll",
+        "rbec.postcodes.1.0.0.nupkg.sha512",
+        "rbec.postcodes.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "Rbec.Postcodes >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\abdill\\.nuget\\packages\\": {}
@@ -51,6 +76,12 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
+        "dependencies": {
+          "Rbec.Postcodes": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
