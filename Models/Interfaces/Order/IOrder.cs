@@ -1,4 +1,5 @@
 ﻿using AldyarOnlineShoppig.Models.Enums;
+using AldyarOnlineShoppig.Models.Interfaces.Customer;
 
 namespace AldyarOnlineShoppig.Models.Interfaces.Order
 {
@@ -10,12 +11,7 @@ namespace AldyarOnlineShoppig.Models.Interfaces.Order
         ICollection<IOrderItem> OrderItems { get; }
         decimal TotalPrice { get; }
 
-
-        // Essential customer info
-        string CustomerName { get; }
-        string DeliveryAddress { get; }
-        string PhoneNumber { get; }  // For delivery coordination
-
+        ICustomer Customer { get; }
         // Basic payment info
         bool IsPaid { get; }
 

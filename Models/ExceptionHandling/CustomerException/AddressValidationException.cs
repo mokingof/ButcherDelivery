@@ -1,18 +1,7 @@
-﻿namespace AldyarOnlineShoppig.Models.ExceptionHandling.CustomerException
-{
-    public enum AddressValidationError
-    {
-        Null,
-        Empty,
-        InvalidPostcode,
-        InvalidFormat,
-        TooLong,
-        InvalidCharacters,
-        MissingStreetNumber,
-        InvalidCityName,
-        InvalidStreetFormat
-    }
+﻿using AldyarOnlineShoppig.Models.Enums.ValidationErrors;
 
+namespace AldyarOnlineShoppig.Models.ExceptionHandling.CustomerException
+{
     public class AddressValidationException : Exception
     {
         public AddressValidationError ErrorType { get; }
@@ -43,9 +32,9 @@
                     return $"'{attemptedValue}' contains invalid characters. Only letters, numbers, spaces and hyphens are allowed";
                 case AddressValidationError.MissingStreetNumber:
                     return $"'{attemptedValue}' Is missing Street number";
-                    case AddressValidationError.InvalidCityName:
+                case AddressValidationError.InvalidCityName:
                     return $"'{attemptedValue}' Is not a valid city";
-                    case AddressValidationError.InvalidStreetFormat:
+                case AddressValidationError.InvalidStreetFormat:
                     return $"'{attemptedValue}' Invalid format";
                 default:
                     throw new ArgumentException($"Unhandled error type: {error}");

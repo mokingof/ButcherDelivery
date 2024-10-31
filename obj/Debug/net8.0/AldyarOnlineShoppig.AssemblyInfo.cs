@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AldyarOnlineShoppig")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2617f641da22400bccc887846e237830d1d99135")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+228ba4af9d84fb81a9acb04689512054343f1557")]
 [assembly: System.Reflection.AssemblyProductAttribute("AldyarOnlineShoppig")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AldyarOnlineShoppig")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

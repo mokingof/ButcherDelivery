@@ -1,6 +1,6 @@
 ﻿using AldyarOnlineShoppig.Models.Core.Products.Abstract;
 using AldyarOnlineShoppig.Models.Enums;
-namespace AldyarOnlineShoppig.Model 
+namespace AldyarOnlineShoppig.Models 
 {
     public class Mince : Beef
     {

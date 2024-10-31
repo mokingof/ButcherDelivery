@@ -1,19 +1,8 @@
-﻿namespace AldyarOnlineShoppig.Models.ExceptionHandling.CustomerException
-{
-    public enum NameField
-    {
-        FirstName,
-        LastName
-    }
+﻿using AldyarOnlineShoppig.Models.Enums.ValidationErrors;
 
-    public enum NameValidationError
-    {
-        Null,
-        Empty,
-        TooShort,
-        TooLong,
-        InvalidCharacters
-    }
+namespace AldyarOnlineShoppig.Models.ExceptionHandling.CustomerException
+{
+
     public class CustomerNameValidationException : Exception
     {
         public NameField Field { get; }

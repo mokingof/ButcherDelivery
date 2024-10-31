@@ -1,11 +1,7 @@
-﻿namespace AldyarOnlineShoppig.Models.ExceptionHandling.CustomerException
+﻿using AldyarOnlineShoppig.Models.Enums.ValidationErrors;
+
+namespace AldyarOnlineShoppig.Models.ExceptionHandling.CustomerException
 {
-    public enum PhoneValidationError
-    {
-        Null,
-        Empty,
-        InvalidFormat
-    }
     public class PhoneValidationException : Exception
     {
         public PhoneValidationError ErrorType { get; }
@@ -17,7 +13,6 @@
             ErrorType = error;
             AttemptedValue = attemptedValue;
         }
-
         private static string CreateMessage(PhoneValidationError error, string attemptedValue)
         {
             switch (error)

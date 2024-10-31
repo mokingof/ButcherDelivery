@@ -1,14 +1,8 @@
-﻿namespace AldyarOnlineShoppig.Models.ExceptionHandling.CustomerException
-{
-    public enum EmailValidationError
-    {
-        Null,
-        Empty,
-        TooLong,
-        InvalidFormat,
-        TrailingDot
-    }
+﻿using AldyarOnlineShoppig.Models.Enums.ValidationErrors;
 
+namespace AldyarOnlineShoppig.Models.ExceptionHandling.CustomerException
+{
+  
     public class EmailValidationException : Exception
     {
         public EmailValidationError ErrorType { get; }
