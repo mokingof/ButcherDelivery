@@ -1,7 +1,6 @@
 ﻿using AldyarOnlineShoppig.Models.Enums;
 using AldyarOnlineShoppig.Models.ExceptionHandling;
-using AldyarOnlineShoppig.Models.Factories.Abstract;
-using AldyarOnlineShoppig.Models.Interfaces;
+using AldyarOnlineShoppig.Models.Interfaces.Product;
 
 namespace AldyarOnlineShoppig.Models.Factories.Concrete
 {

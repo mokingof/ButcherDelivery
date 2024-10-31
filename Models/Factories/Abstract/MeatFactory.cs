@@ -1,6 +1,6 @@
-﻿using AldyarOnlineShoppig.Models.Interfaces;
+﻿using AldyarOnlineShoppig.Models.Interfaces.Product;
 
-namespace AldyarOnlineShoppig.Models.Factories.Abstract
+namespace AldyarOnlineShoppig.Models
 {
     public abstract class MeatFactory
     {
