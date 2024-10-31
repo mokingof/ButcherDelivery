@@ -9,7 +9,7 @@ namespace AldyarOnlineShoppig.Models.Interfaces.Customer
         string LastName { get; }
         IEmail Email { get; }
 
-        string PhoneNumber { get; }
+        IPhoneNumber PhoneNumber { get; }
         IAddress Address { get; }
         DateTime RegisteredDate { get; }  // When they first became a customer
         ICollection<IOrder> OrderHistory { get; }  // Their past orders

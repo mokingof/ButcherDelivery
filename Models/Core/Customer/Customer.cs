@@ -10,14 +10,13 @@ namespace AldyarOnlineShoppig.Models.Core.Customer
     {
         private const int MinNameLength = 2;
         private const int MaxNameLength = 55;
-        
-        private static readonly string MobilePattern = @"^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$";
-        private static readonly string LandlinePattern = @"^(\+44\s?|0)(?:1|2|3)\d{2,3}\s?\d{3,4}\s?\d{3,4}$";
+
+
 
         private string _firstName;
         private string _lastName;
         private IEmail _email;
-        private string _phoneNumber;
+        private IPhoneNumber _phoneNumber;
         private IAddress _address;
         private readonly DateTime _registeredDate;
 
@@ -26,7 +25,7 @@ namespace AldyarOnlineShoppig.Models.Core.Customer
         public string FirstName => _firstName;
         public string LastName => _lastName;
         public IEmail Email => _email;
-        public string PhoneNumber => _phoneNumber;
+        public IPhoneNumber PhoneNumber => _phoneNumber;
 
 
         // Additional useful properties
@@ -45,7 +44,7 @@ namespace AldyarOnlineShoppig.Models.Core.Customer
             _lastName = lastName;
             _email = new Email(email);
             _address = new Address(street, city, postcode);
-            _phoneNumber = phoneNumber;
+            _phoneNumber = new PhoneNumber(phoneNumber);
             _registeredDate = DateTime.Now;
         }
         private void ValidateCustomerName(string firstName, string lastName)
@@ -53,11 +52,7 @@ namespace AldyarOnlineShoppig.Models.Core.Customer
             ValidateName(firstName, NameField.FirstName);
             ValidateName(lastName, NameField.LastName);
         }
-        private static bool ValidatePhoneNumberFormat(string number)
-        {
-            return Regex.Match(number, MobilePattern, RegexOptions.IgnoreCase).Success ||
-                   Regex.Match(number, LandlinePattern, RegexOptions.IgnoreCase).Success;
-        }
+
         private void ValidateName(string name, NameField field)
         {
             if (name == null)
@@ -93,20 +88,7 @@ namespace AldyarOnlineShoppig.Models.Core.Customer
                     return false;
                 }
             }
-
             return true;
         }
-        private void ValidatePhoneNumber(string number)
-        {
-            if (number == null)
-                throw new PhoneValidationException(PhoneValidationError.Null, number);
-
-            if (string.IsNullOrWhiteSpace(number))
-                throw new PhoneValidationException(PhoneValidationError.Empty, number);
-
-            if (!ValidatePhoneNumberFormat(number))
-                throw new PhoneValidationException(PhoneValidationError.InvalidFormat, number);
-        }
-     
     }
 }

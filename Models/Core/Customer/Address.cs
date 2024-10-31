@@ -27,13 +27,11 @@ namespace AldyarOnlineShoppig.Models.Core.Customer
             ValidateStreet(street);
             ValidateCity(city);
 
-            // Try to parse postcode
             if (!Postcode.TryParse(postcodeString, out Postcode postcode))
             {
                 throw new AddressValidationException(AddressValidationError.InvalidPostcode, postcodeString);
             }
 
-            // If we get here, all validation passed, set the fields
             _street = NormalizeStreet(street);
             _city = NormalizeCity(city);
             _postcode = postcode;
