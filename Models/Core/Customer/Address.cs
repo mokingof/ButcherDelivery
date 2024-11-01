@@ -1,4 +1,5 @@
-﻿using AldyarOnlineShoppig.Models.ExceptionHandling.CustomerException;
+﻿using AldyarOnlineShoppig.Models.Enums.ValidationErrors;
+using AldyarOnlineShoppig.Models.ExceptionHandling.CustomerException;
 using AldyarOnlineShoppig.Models.Interfaces.Customer;
 using Rbec.Postcodes;
 using System.IO;

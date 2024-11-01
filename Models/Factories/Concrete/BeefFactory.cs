@@ -1,5 +1,4 @@
-﻿using AldyarOnlineShoppig.Model;
-using AldyarOnlineShoppig.Models.Enums;
+﻿using AldyarOnlineShoppig.Models.Enums;
 using AldyarOnlineShoppig.Models.ExceptionHandling;
 using AldyarOnlineShoppig.Models.Interfaces.Product;
 
