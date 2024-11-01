@@ -3,7 +3,6 @@ using AldyarOnlineShoppig.Models.ExceptionHandling.CustomerException;
 using AldyarOnlineShoppig.Models.Interfaces.Customer;
 using EmailValidation;
 
-
 namespace AldyarOnlineShoppig.Models.Core.Customer
 {
     public class Email : IEmail
@@ -15,6 +14,12 @@ namespace AldyarOnlineShoppig.Models.Core.Customer
 
         public Email(string email)
         {
+            if (email == null) 
+                throw new EmailValidationException(EmailValidationErrorType.Null,email);
+            
+            if (string.IsNullOrEmpty(email))
+                throw new EmailValidationException(EmailValidationErrorType.Empty, email);
+
             if (!EmailValidator.Validate(email))
                 throw new EmailValidationException(EmailValidationErrorType.InvalidFormat, email);
 
