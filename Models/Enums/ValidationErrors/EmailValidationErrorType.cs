@@ -1,6 +1,6 @@
 ﻿namespace AldyarOnlineShoppig.Models.Enums.ValidationErrors
 {
-    public enum EmailValidationError
+    public enum EmailValidationErrorType
     {
         Null,
         Empty,

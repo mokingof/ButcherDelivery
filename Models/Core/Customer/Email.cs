@@ -1,6 +1,8 @@
 ﻿using AldyarOnlineShoppig.Models.Enums.ValidationErrors;
 using AldyarOnlineShoppig.Models.ExceptionHandling.CustomerException;
 using AldyarOnlineShoppig.Models.Interfaces.Customer;
+using EmailValidation;
+
 
 namespace AldyarOnlineShoppig.Models.Core.Customer
 {
@@ -11,38 +13,13 @@ namespace AldyarOnlineShoppig.Models.Core.Customer
         private readonly string _email;
         string IEmail.Email => _email;
 
-
         public Email(string email)
-        {    
-            ValidateEmailAddress(email);    
+        {
+            if (!EmailValidator.Validate(email))
+                throw new EmailValidationException(EmailValidationErrorType.InvalidFormat, email);
+
             _email = email;
         }
-
-        private void ValidateEmailAddress(string email)
-        {
-            if (email == null)
-                throw new EmailValidationException(EmailValidationError.Null, email);
-
-            var trimmedEmail = email.Trim();
-
-            if (string.IsNullOrWhiteSpace(trimmedEmail))
-                throw new EmailValidationException(EmailValidationError.Empty, email);
-
-            if (trimmedEmail.Length > MaxEmailLength)
-                throw new EmailValidationException(EmailValidationError.TooLong, email);
-
-            if (trimmedEmail.EndsWith("."))
-                throw new EmailValidationException(EmailValidationError.TrailingDot, email);
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(trimmedEmail);
-                if (addr.Address != trimmedEmail)
-                    throw new EmailValidationException(EmailValidationError.InvalidFormat, email);
-            }
-            catch (Exception)
-            {
-                throw new EmailValidationException(EmailValidationError.InvalidFormat, email);
-            }
-        }
+     
     }
 }

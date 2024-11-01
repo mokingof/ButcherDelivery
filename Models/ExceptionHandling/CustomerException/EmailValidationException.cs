@@ -5,10 +5,10 @@ namespace AldyarOnlineShoppig.Models.ExceptionHandling.CustomerException
   
     public class EmailValidationException : Exception
     {
-        public EmailValidationError ErrorType { get; }
+        public EmailValidationErrorType ErrorType { get; }
         public string AttemptedValue { get; }
 
-        public EmailValidationException(EmailValidationError error, string attemptedValue)
+        public EmailValidationException(EmailValidationErrorType error, string attemptedValue)
             : base(CreateMessage(error, attemptedValue))
         {
             ErrorType = error;
@@ -18,19 +18,19 @@ namespace AldyarOnlineShoppig.Models.ExceptionHandling.CustomerException
         public EmailValidationException(string message, Exception innerException)
             : base(message, innerException) { }
 
-        private static string CreateMessage(EmailValidationError error, string attemptedValue)
+        private static string CreateMessage(EmailValidationErrorType error, string attemptedValue)
         {
             switch (error)
             {
-                case EmailValidationError.Null:
+                case EmailValidationErrorType.Null:
                     return "Email address cannot be null";
-                case EmailValidationError.Empty:
+                case EmailValidationErrorType.Empty:
                     return "Email address cannot be empty or consist only of whitespace";
-                case EmailValidationError.TooLong:
+                case EmailValidationErrorType.TooLong:
                     return $"Email address '{attemptedValue}' exceeds maximum length of {254} characters";
-                case EmailValidationError.TrailingDot:
+                case EmailValidationErrorType.TrailingDot:
                     return $"Email address '{attemptedValue}' cannot end with a period";
-                case EmailValidationError.InvalidFormat:
+                case EmailValidationErrorType.InvalidFormat:
                     return $"'{attemptedValue}' is not a valid email address";
                 default:
                     throw new ArgumentException($"Unhandled error type: {error}");
