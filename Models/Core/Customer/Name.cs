@@ -35,35 +35,30 @@ namespace AldyarOnlineShoppig.Models.Core.Customer
         }
         private string NormaliseString(string name)
         {
-            int index = 0;
-            string empty = "";
-            string result = name.Trim().ToLower();
+            bool capitaliseNext = true;
+            string newResult = "";
 
-            foreach (char c in result)
+            foreach (char c in name.Trim().ToLower())
             {
-                bool isAllowedSpecialChar = allowedSpecialChars.Contains(c);
-                if (index == 0 && !isAllowedSpecialChar)
+                if (capitaliseNext && !IsAllowedSpecialChar(c))
                 {
-                    empty += char.ToUpper(c);
-                    index++;
+                    newResult += char.ToUpper(c);
+                    capitaliseNext = false;
                     continue;
                 }
-
-
-                if (isAllowedSpecialChar)
+                if (IsAllowedSpecialChar(c))
                 {
-                    index = 0;
+                    capitaliseNext = true ;
                 }
-                empty += c;
+                newResult += c;
             }
-            return empty;
+            return newResult;
         }
         private void ValidateCustomerName(string firstName, string lastName)
         {
             ValidateName(firstName, NameField.FirstName);
             ValidateName(lastName, NameField.LastName);
-        }
-        
+        }  
         private void ValidateName(string name, NameField field)
         {   
             
@@ -78,20 +73,20 @@ namespace AldyarOnlineShoppig.Models.Core.Customer
             if (!IsValidNameCharacters(name))
                 throw new CustomerNameValidationException(field, NameValidationError.InvalidCharacters, name);
         }
+        private bool IsAllowedSpecialChar(char c)
+        {
+            // Check if it's one of our allowed special characters
+            return allowedSpecialChars.Contains(c);
+        }
         private bool IsValidNameCharacters(string name)
         {
-           
-
             foreach (char c in name)
             {
                 // Check if character is a letter (handles international characters too)
                 bool isLetter = char.IsLetter(c);
 
-                // Check if it's one of our allowed special characters
-                bool isAllowedSpecialChar = allowedSpecialChars.Contains(c);
-
                 // If character is neither a letter nor an allowed special character
-                if (!isLetter && !isAllowedSpecialChar)
+                if (!isLetter && !IsAllowedSpecialChar(c))
                 {
                     return false;
                 }
