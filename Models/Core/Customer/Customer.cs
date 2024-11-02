@@ -34,7 +34,7 @@ namespace AldyarOnlineShoppig.Models.Core.Customer
             _name = new Name(firstName, lastName);
             _email = new Email(email);
             _address = new Address(street, city, postcode);
-            _phoneNumber = new PhoneNumber(phoneNumber);
+            _phoneNumber = new UserPhoneNumber(phoneNumber);
             _registeredDate = DateTime.Now;
         }
        
