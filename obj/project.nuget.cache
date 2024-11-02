@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "psEshUX7DkE=",
+  "dgSpecHash": "M5MsXb7v8GA=",
   "success": true,
   "projectFilePath": "C:\\Users\\abdill\\source\\repos\\AldyarOnlineShoppig\\AldyarOnlineShoppig\\AldyarOnlineShoppig.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\abdill\\.nuget\\packages\\emailvalidation\\1.2.0\\emailvalidation.1.2.0.nupkg.sha512",
+    "C:\\Users\\abdill\\.nuget\\packages\\libphonenumber-csharp\\8.13.48\\libphonenumber-csharp.8.13.48.nupkg.sha512",
     "C:\\Users\\abdill\\.nuget\\packages\\rbec.postcodes\\1.0.0\\rbec.postcodes.1.0.0.nupkg.sha512",
     "C:\\Users\\abdill\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
   ],

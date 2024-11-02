@@ -10,6 +10,8 @@ namespace AldyarOnlineShoppig.Models.Core.Customer
         private const int MinNameLength = 2;
         private const int MaxNameLength = 55;
 
+        // Define allowed special characters for names
+        private readonly char[] allowedSpecialChars = new[] { ' ', '-', '\'', '.', };
         private readonly string _firstName;
         private readonly string _lastName;
         private readonly string _fullName;
@@ -24,24 +26,47 @@ namespace AldyarOnlineShoppig.Models.Core.Customer
             if (lastName == null)
                 throw new CustomerNameValidationException(NameField.LastName, NameValidationError.Null, lastName);
 
-            var firstNameTrimmed = firstName.Trim();
-            var lastNameTrimmed = lastName.Trim();
+            _firstName = NormaliseString(firstName);
+            _lastName = NormaliseString(lastName);
 
-            ValidateCustomerName(firstNameTrimmed, lastNameTrimmed);
-            _firstName = firstNameTrimmed;
-            _lastName = lastNameTrimmed;
+            ValidateCustomerName(_firstName, _lastName);
+          
             _fullName = $"{_firstName} {_lastName}";
         }
+        private string NormaliseString(string name)
+        {
+            int index = 0;
+            string empty = "";
+            string result = name.Trim().ToLower();
 
+            foreach (char c in result)
+            {
+                bool isAllowedSpecialChar = allowedSpecialChars.Contains(c);
+                if (index == 0 && !isAllowedSpecialChar)
+                {
+                    empty += char.ToUpper(c);
+                    index++;
+                    continue;
+                }
+
+
+                if (isAllowedSpecialChar)
+                {
+                    index = 0;
+                }
+                empty += c;
+            }
+            return empty;
+        }
         private void ValidateCustomerName(string firstName, string lastName)
         {
             ValidateName(firstName, NameField.FirstName);
             ValidateName(lastName, NameField.LastName);
         }
-
+        
         private void ValidateName(string name, NameField field)
-        {
-
+        {   
+            
             if (string.IsNullOrWhiteSpace(name))  
                 throw new CustomerNameValidationException(field, NameValidationError.Empty, name);
 
@@ -55,8 +80,7 @@ namespace AldyarOnlineShoppig.Models.Core.Customer
         }
         private bool IsValidNameCharacters(string name)
         {
-            // Define allowed special characters for names
-            char[] allowedSpecialChars = new[] { ' ', '-', '\'', '.',  };
+           
 
             foreach (char c in name)
             {

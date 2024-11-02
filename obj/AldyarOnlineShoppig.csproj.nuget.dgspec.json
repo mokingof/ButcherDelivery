@@ -53,6 +53,10 @@
             "Rbec.Postcodes": {
               "target": "Package",
               "version": "[1.0.0, )"
+            },
+            "libphonenumber-csharp": {
+              "target": "Package",
+              "version": "[8.13.48, )"
             }
           },
           "imports": [

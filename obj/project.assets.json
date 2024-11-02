@@ -18,6 +18,19 @@
           }
         }
       },
+      "libphonenumber-csharp/8.13.48": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/PhoneNumbers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/PhoneNumbers.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Rbec.Postcodes/1.0.0": {
         "type": "package",
         "compile": {
@@ -60,6 +73,25 @@
         "lib/netstandard2.0/EmailValidation.xml",
         "lib/netstandard2.1/EmailValidation.dll",
         "lib/netstandard2.1/EmailValidation.xml"
+      ]
+    },
+    "libphonenumber-csharp/8.13.48": {
+      "sha512": "DC37SfN41a8F9eabLierTTZWlK9kURQgcC8wwepIucagIk+TKaK9uHRIw3jn10MgGjpAbAayWl+WITFCXp3ubA==",
+      "type": "package",
+      "path": "libphonenumber-csharp/8.13.48",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net6.0/PhoneNumbers.dll",
+        "lib/net6.0/PhoneNumbers.xml",
+        "lib/net8.0/PhoneNumbers.dll",
+        "lib/net8.0/PhoneNumbers.xml",
+        "lib/netstandard2.0/PhoneNumbers.dll",
+        "lib/netstandard2.0/PhoneNumbers.xml",
+        "libphonenumber-csharp.8.13.48.nupkg.sha512",
+        "libphonenumber-csharp.nuspec"
       ]
     },
     "Rbec.Postcodes/1.0.0": {
@@ -168,7 +200,8 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "EmailValidation >= 1.2.0",
-      "Rbec.Postcodes >= 1.0.0"
+      "Rbec.Postcodes >= 1.0.0",
+      "libphonenumber-csharp >= 8.13.48"
     ]
   },
   "packageFolders": {
@@ -223,6 +256,10 @@
           "Rbec.Postcodes": {
             "target": "Package",
             "version": "[1.0.0, )"
+          },
+          "libphonenumber-csharp": {
+            "target": "Package",
+            "version": "[8.13.48, )"
           }
         },
         "imports": [

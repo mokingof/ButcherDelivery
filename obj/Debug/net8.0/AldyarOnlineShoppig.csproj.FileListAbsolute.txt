@@ -33,3 +33,4 @@ C:\Users\abdill\source\repos\AldyarOnlineShoppig\AldyarOnlineShoppig\obj\Debug\n
 C:\Users\abdill\source\repos\AldyarOnlineShoppig\AldyarOnlineShoppig\bin\Debug\net8.0\Rbec.Postcodes.dll
 C:\Users\abdill\source\repos\AldyarOnlineShoppig\AldyarOnlineShoppig\obj\Debug\net8.0\AldyarOn.32FDE94C.Up2Date
 C:\Users\abdill\source\repos\AldyarOnlineShoppig\AldyarOnlineShoppig\bin\Debug\net8.0\EmailValidation.dll
+C:\Users\abdill\source\repos\AldyarOnlineShoppig\AldyarOnlineShoppig\bin\Debug\net8.0\PhoneNumbers.dll

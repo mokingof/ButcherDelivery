@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="EmailValidation" Version="1.2.0" />
+    <PackageReference Include="libphonenumber-csharp" Version="8.13.48" />
     <PackageReference Include="Rbec.Postcodes" Version="1.0.0" />
   </ItemGroup>
 
